@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-bind</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>v-bind</h1>
+<hr>
+<div id="app">
+  <img v-bind:src="imgSrc" alt="">
+
+  <p>
+    <a :href="webUrl" target="_blank">链接</a>
+  </p>
+
+  <p>
+    <h3>绑定class</h3>
+  <div :class="className">1、绑定class</div>
+  <div :class="{classA:isOk}">2、绑定class 判断</div>
+  <div :class="{classA,classB}">3、绑定class 数组</div>
+  <div :class="isOk?classA:classB">4、绑定class 三元运算</div>
+
+  </p>
+
+  <hr>
+  <div>
+    <input type="checkbox" id="isOk" v-model="isOk">
+    <label for="isOk">isOk={{isOk}}</label>
+  </div>
+
+  <hr>
+  <div :style={color:blue,fontSize:font}>5、绑定样式style</div>
+  <div :style="styleObject">6、绑定样式style</div>
+</div>
+<style>
+  .classA{color: red;}
+  .classB{color: aqua;}
+</style>
+
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      imgSrc: 'https://gss0.bdstatic.com/5eR1dDebRNRTm2_p8IuM_a/her/static/qiusuo/container/search/zllogo-fix.264fb0b.png',
+      webUrl:'http://www.hao123.com',
+      className:'classA',
+      isOk:true,
+      classA:'classA',
+      classB:'classB',
+      blue:'blue',
+      font:'20px',
+      styleObject:{
+        color:'green',
+        fontSize:'30px'
+      }
+    },
+
+  })
+</script>
+</body>
+</html>

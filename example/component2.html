@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>component2</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>component2 props</h1>
+<hr>
+<h3>属性的注册 </h3>
+<div id="app">
+  <p>
+    <panda here="China"></panda>
+  </p>
+</div>
+
+
+<script type="text/javascript">
+
+  var app = new Vue({
+    el:'#app',
+    data:{
+      message:'hellow world',
+    },
+    components:{
+      "panda":{
+        template:`<div style="color: blue">Panda from {{ here }}</div>`,
+        props:['here']
+      }
+    }
+
+  })
+
+</script>
+</body>
+</html>

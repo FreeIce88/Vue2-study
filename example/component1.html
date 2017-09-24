@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>component1</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>component1</h1>
+<hr>
+<div id="app">
+{{message}}
+
+  <p>
+    <panda></panda>
+  </p>
+</div>
+<div id="ppa">
+  <rison></rison>
+</div>
+
+<script type="text/javascript">
+  Vue.component('rison',{
+    template:`<div style="color: red">我是全局的rison组件</div>`
+  });
+
+  var app = new Vue({
+    el:'#app',
+    data:{
+      message:'hellow world',
+    },
+    components:{
+      "panda":{
+        template:`<div style="color: blue">我是局部的panda组件</div>`
+      }
+    }
+
+  })
+  var ppa = new Vue({
+    el:'#ppa',
+    data:{
+
+    },
+
+  })
+</script>
+</body>
+</html>

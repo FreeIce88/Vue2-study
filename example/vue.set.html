@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vue.set实例</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>vue.set实例</h1>
+<hr>
+<div id="app">
+  {{count}}
+  <ul>
+    <li v-for="item in arr">{{item}}</li>
+  </ul>
+</div>
+<p>
+  <button onclick="add()">ADD</button>
+</p>
+
+<script type="text/javascript">
+  //3个方法可以修改值  改变数组有很大用处
+  function add() {
+//    Vue.set(outData,'count',2);
+
+//      app.count++;
+
+//    outData.count++;
+//    app.arr[1]='ddd';
+    Vue.set(app.arr,1,'dd');
+  }
+
+  var outData = {
+    count: 1,
+//    goods: 'car'
+
+    arr:['aaa','bbb','ccc']
+  }
+
+  var app = new Vue({
+    el: '#app',
+    data: outData
+
+  })
+</script>
+</body>
+</html>
