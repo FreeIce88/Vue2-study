@@ -1,0 +1,25 @@
+{
+  "name": "vue2-study",
+  "version": "1.0.0",
+  "description": "Vue demo",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FreeIce88/Vue2-study.git"
+  },
+  "keywords": [
+    "rison"
+  ],
+  "author": "rison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FreeIce88/Vue2-study/issues"
+  },
+  "homepage": "https://github.com/FreeIce88/Vue2-study#readme"
+}

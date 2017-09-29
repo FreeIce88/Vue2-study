@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>$mount methods</h1>
+<hr>
+<div id="app">
+
+</div>
+<p><button onclick="destroy()">卸载</button></p>
+<p><button onclick="reload()">刷新</button></p>
+<p><button onclick="tick()">更改数据</button></p>
+<script type="text/javascript">
+
+
+  var rison = Vue.extend({
+    template: `<p>{{message}}</p>`,
+    data: function () {
+      return {
+        message: 'hello i am rison !'
+      }
+    },
+    mounted:function () {
+      console.log('mounted被创建')
+    },
+    destroyed:function () {
+      console.log('销毁了')
+    },
+    updated:function () {
+      console.log('被更新')
+    }
+  })
+
+  var vm = new rison().$mount('#app')
+
+  function destroy() {
+    vm.$destroy()
+  }
+  function reload() {
+    vm.$forceUpdate()
+  }
+  function tick() {
+    vm.message='这个是被修改的';
+    vm.$nextTick(function () {
+      console.log('修改后的回调')
+    })
+  }
+</script>
+</body>
+</html>

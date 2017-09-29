@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>slot</h1>
+<hr>
+<div id="app">
+  {{message}}
+  <rison>
+    <span slot="bolgUrl">{{risonData.bolgUrl}}</span>
+    <span slot="netName">{{risonData.netName}}</span>
+    <span slot="skill">{{risonData.skill}}</span>
+  </rison>
+</div>
+<template id="tep">
+  <div>
+    <p>博客地址：
+      <slot name="bolgUrl"></slot>
+    </p>
+    <p>网名：
+      <slot name="netName"></slot>
+    </p>
+    <p>技术类型：
+      <slot name="skill"></slot>
+    </p>
+  </div>
+</template>
+
+<script type="text/javascript">
+
+  var rison = {
+    template: "#tep"
+  }
+
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello rison',
+      risonData: {
+        bolgUrl: 'http://www.baidu.com',
+        netName: 'rison',
+        skill: 'web'
+      }
+    },
+    components: {
+      "rison": rison
+    }
+
+  })
+</script>
+</body>
+</html>

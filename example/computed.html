@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>computed计算属性</h1>
+<hr>
+<div id="app">
+  <p>{{newPrice}}</p>
+  <p>
+  <ul>
+    <li v-for="item in reverNews">{{item.title}}-{{item.date}}</li>
+  </ul>
+  </p>
+</div>
+
+<script type="text/javascript">
+  var newsList = [
+    {title: '花花公子创始去世', date: '2017/9/29'},
+    {title: '一直以为柳岩穿衣很大胆，看了39岁的陈紫函和她你才', date: '2017/9/24'},
+    {title: '吐槽大会：53名学生买“超便宜”苹果7被警察找上门', date: '2017/9/23'},
+    {title: '小姨子和她朋友开了家洗车行，来的都是豪', date: '2017/9/20'},
+    {title: '山东现11万元天价蛐蛐 有买家用蛐蛐赌钱赚300万', date: '2017/3/21'},
+  ]
+  var app = new Vue({
+    el: '#app',
+    data: {
+      price: 100,
+      newsList: newsList
+    },
+    computed: {
+      newPrice: function () {
+        return this.price = '$' + this.price + '元';
+      },
+      reverNews: function () {
+        return this.newsList.reverse()
+      }
+    }
+
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>extends选项</h1>
+<hr>
+<div id="app">
+  ${message}
+  <p><button @click="add">add</button></p>
+</div>
+
+<script type="text/javascript">
+  var bbb={
+    created:function(){
+      console.log("我是被扩展出来的");
+    },
+    methods:{
+      add1:function(){
+        console.log('我是被扩展出来的方法！');
+      }
+    }
+  };
+  
+  var app = new Vue({
+    el:'#app',
+    data:{
+      message:'hell rison'
+    },
+    methods:{
+      add:function () {
+        console.log('我的原生方法')
+      }
+    },
+    extends:bbb,
+    delimiters:['${','}'] //Vue默认的插值是双大括号{{}}。但有时我们会有需求更改这个插值的形式
+
+  })
+</script>
+</body>
+</html>

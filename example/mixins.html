@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+
+<h1>mixins混入方法</h1>
+<hr>
+<div id="app">
+<p>{{num}}</p>
+  <p><button @click="add">增加数量</button></p>
+</div>
+
+<script type="text/javascript">
+  var addLog= {
+    updated:function () {
+      console.log("数据发生变化,变化成"+this.num+".");
+    }
+  }
+  Vue.mixin({
+    updated:function () {
+      console.log("全局的混入");//全局的优先级最高
+    }
+  });
+
+  var app = new Vue({
+    el:'#app',
+    data:{
+      num:1
+    },
+    methods:{
+      add:function () {
+        this.num++
+      }
+    },
+    updated:function () {
+      console.log('我是原生的updated')
+    },
+    mixins:[addLog]//混入的方法先执行，原生的后执行
+
+  })
+</script>
+</body>
+</html>
